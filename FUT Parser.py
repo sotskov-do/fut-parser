@@ -22,14 +22,12 @@ def checkIP():
 #socks.set_default_proxy(socks.SOCKS5, "localhost", 9150)
 #socket.socket = socks.socksocket
 # Создаём свой краулер, в опциях вводим пароль
-crawler = TorCrawler(ctrl_pass='formula1')
+#crawler = TorCrawler(ctrl_pass='formula1')
 checkIP()
 
 
 def fb_parse(base_url, headers):
     x = 0
-    z1 = 1
-    z2 = 6
     start = time.time()
     players = []
     urls = []
@@ -37,20 +35,21 @@ def fb_parse(base_url, headers):
     session = requests.Session()
     request = session.get(base_url, headers=headers)
     if request.status_code == 200:
-        request = session.get('https://www.futbin.com/players?page=1&version=gold', headers=headers)
-        soup = bs(request.content, 'lxml')
-        try:
-            ulr = soup.find_all('a', attrs={'class': 'player_name_players_table'})
-            print(ulr)
-        except:
-            pass
-        for i in range(z1, z2):
-            url = f'https://www.futbin.com/20/player/{i}'
-            if url not in urls:
-                urls.append(url)
+        for i in range(1):
+            request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
+            soup = bs(request.content, 'lxml')
+            try:
+                s_url = soup.find_all('a', attrs={'class': 'player_name_players_table'})
+                print(len(s_url))
+                for i in range(len(s_url)):
+                    url = 'https://www.futbin.com' + s_url[i]['href']
+                    if url not in urls:
+                        urls.append(url)
+            except:
+                pass
     for url in urls:
         x += 1
-        y = round(((x / (z2 - z1 + 1)) * 100), 2)
+        y = round(((x / (len(urls) + 1)) * 100), 2)
         print(y, '%')
         try:
             #checkIP()

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FUT Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/FUT Parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsed_player_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parsed_player_database.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Tor">
+  <component name="RunManager" selected="Python.FUT Parser">
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FUT Parser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Tor" />
         <item itemvalue="Python.FUT Parser" />
+        <item itemvalue="Python.Tor" />
         <item itemvalue="Python.IP Changer" />
         <item itemvalue="Python.1" />
         <item itemvalue="Python.FUT" />
@@ -172,6 +173,14 @@
       <option name="presentableId" value="Default" />
       <updated>1558042208195</updated>
     </task>
+    <task id="LOCAL-00001" summary="-">
+      <created>1579712431410</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579712431410</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -183,7 +192,15 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="455" y="192" width="800" height="672" key="#Updates" timestamp="1579712595501">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="455" y="192" width="800" height="672" key="#Updates/0.0.1920.1040@0.0.1920.1040" timestamp="1579712595501" />
     <state x="504" y="131" width="714" height="798" key="CommitChangelistDialog2" timestamp="1579712439641">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -192,60 +209,49 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579546272599" />
-    <state width="1379" height="262" key="GridCell.Tab.0.bottom" timestamp="1579710274892">
+    <state width="1379" height="262" key="GridCell.Tab.0.bottom" timestamp="1579715808675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579710274892" />
-    <state width="1379" height="262" key="GridCell.Tab.0.center" timestamp="1579710274892">
+    <state width="1379" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579715808675" />
+    <state width="1379" height="262" key="GridCell.Tab.0.center" timestamp="1579715808675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579710274892" />
-    <state width="1379" height="262" key="GridCell.Tab.0.left" timestamp="1579710274891">
+    <state width="1379" height="262" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579715808675" />
+    <state width="1379" height="262" key="GridCell.Tab.0.left" timestamp="1579715808675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579710274891" />
-    <state width="1379" height="262" key="GridCell.Tab.0.right" timestamp="1579710274892">
+    <state width="1379" height="262" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579715808675" />
+    <state width="1379" height="262" key="GridCell.Tab.0.right" timestamp="1579715808675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579710274892" />
-    <state width="1379" height="323" key="GridCell.Tab.1.bottom" timestamp="1579546275205">
+    <state width="1379" height="262" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579715808675" />
+    <state width="1379" height="323" key="GridCell.Tab.1.bottom" timestamp="1579715392010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="323" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579546275205" />
-    <state width="1379" height="323" key="GridCell.Tab.1.center" timestamp="1579546275204">
+    <state width="1379" height="323" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579715392010" />
+    <state width="1379" height="323" key="GridCell.Tab.1.center" timestamp="1579715392010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="323" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579546275204" />
-    <state width="1379" height="323" key="GridCell.Tab.1.left" timestamp="1579546275204">
+    <state width="1379" height="323" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579715392010" />
+    <state width="1379" height="323" key="GridCell.Tab.1.left" timestamp="1579715392010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="323" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579546275204" />
-    <state width="1379" height="323" key="GridCell.Tab.1.right" timestamp="1579546275205">
+    <state width="1379" height="323" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579715392010" />
+    <state width="1379" height="323" key="GridCell.Tab.1.right" timestamp="1579715392010">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1379" height="323" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579546275205" />
+    <state width="1379" height="323" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579715392010" />
     <state x="464" y="155" key="SettingsEditor" timestamp="1579286554590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="464" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579286554590" />
-    <state x="643" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1579709021484">
+    <state x="643" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1579713721584">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="643" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579709021484" />
+    <state x="643" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579713721584" />
     <state x="654" y="453" width="424" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579712404344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="654" y="453" width="424" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1579712404344" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FUT Parser.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
