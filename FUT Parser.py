@@ -34,11 +34,15 @@ def fb_parse(base_url, headers):
     urls.append(base_url)
     session = requests.Session()
     request = session.get(base_url, headers=headers)
+    pagination_request = session.get('https://www.futbin.com/players?page=1&version=gold', headers=headers)
+    soup_pagination = bs(pagination_request.content, 'lxml')
+    pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
     if request.status_code == 200:
-        for i in range(1):
+        for i in range(pagination):
             request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
             soup = bs(request.content, 'lxml')
             try:
+                time.sleep(5)
                 s_url = soup.find_all('a', attrs={'class': 'player_name_players_table'})
                 print(len(s_url))
                 for i in range(len(s_url)):
