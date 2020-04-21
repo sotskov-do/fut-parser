@@ -2,28 +2,12 @@ import requests
 import csv
 from bs4 import BeautifulSoup as bs
 import time
-import socks
 import socket
-from TorCrawler import TorCrawler
-
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36"}
 
 base_url = 'https://www.futbin.com/20/player/1'
-
-
-def checkIP():
-    ip = requests.get('http://checkip.dyndns.org').content
-    soup = bs(ip, 'html.parser')
-    print(soup.find('body').text)
-
-
-#socks.set_default_proxy(socks.SOCKS5, "localhost", 9150)
-#socket.socket = socks.socksocket
-# Создаём свой краулер, в опциях вводим пароль
-#crawler = TorCrawler(ctrl_pass='formula1')
-checkIP()
 
 
 def fb_parse(base_url, headers):
@@ -38,7 +22,8 @@ def fb_parse(base_url, headers):
     soup_pagination = bs(pagination_request.content, 'lxml')
     pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
     if request.status_code == 200:
-        for i in range(pagination):
+        # TODO, insert pagination
+        for i in range(1):
             request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
             soup = bs(request.content, 'lxml')
             try:
@@ -56,11 +41,10 @@ def fb_parse(base_url, headers):
         y = round(((x / (len(urls) + 1)) * 100), 2)
         print(y, '%')
         try:
-            #checkIP()
             time.sleep(5)
             request = session.get(url, headers=headers)
             soup = bs(request.content, 'lxml')
-            rating = soup.find('h1', attrs={'class': 'player_header header_top pb-0'}).text.split()
+            rating = soup.find('div', attrs={'class': 'pcdisplay-rat'}).text.split()
             name = soup.find('span', attrs={'class': 'header_name'}).text
             position = soup.find('div', attrs={'class': 'pcdisplay-pos'}).text
             club = soup.find_all('td', attrs={'class': 'table-row-text'})[1].text.split()
@@ -75,7 +59,10 @@ def fb_parse(base_url, headers):
             revision = soup.find_all('td', attrs={'class': 'table-row-text'})[10].text
             def_wr = soup.find_all('td', attrs={'class': 'table-row-text'})[11].text
             att_wr = soup.find_all('td', attrs={'class': 'table-row-text'})[12].text
+            body_type = soup.find_all('td', attrs={'class': 'table-row-text'})[16].text
             traits = soup.find('div', attrs={'id': 'traits_content'}).text.split()
+            # TODO, add price range
+            price_range = soup.find('div', attrs={'id': 'pr_pc'})
             pace = soup.find('div', attrs={'id': 'main-pace-val-0'}).text.split()
             acceleration = soup.find('div', attrs={'id': 'sub-acceleration-val-0'}).text.split()
             sprint_speed = soup.find('div', attrs={'id': 'sub-sprintspeed-val-0'}).text.split()
@@ -125,8 +112,8 @@ def fb_parse(base_url, headers):
                 def_wr_rate = 0.66
             elif def_wr == 'Low':
                 def_wr_rate = 0.33
-            skill_rate = int(skills[0]) * 0.2
-            weak_foot_rate = int(weak_foot[0]) * 0.2
+            skill_rate = round(int(skills[0]) * 0.2, 1)
+            weak_foot_rate = round(int(weak_foot[0]) * 0.2, 1)
             best_cb = round(
                 ((int(acceleration[0]) * 0.1 + int(sprint_speed[0]) * 0.1 + int(agility[0]) * 0.07 +
                   int(balance[0]) * 0.07 + int(interceptions[0]) * 0.07 + int(heading_accuracy[0]) * 0.07 +
@@ -178,15 +165,17 @@ def fb_parse(base_url, headers):
                 'club': ' '.join(club),
                 'nation': ' '.join(nation),
                 'league': ' '.join(league),
-                'skills': round(skill_rate, 1),
-                'weak_foot': round(weak_foot_rate, 1),
+                'skills': skill_rate,
+                'weak_foot': weak_foot_rate,
                 'foot': foot[0],
                 'height': int(height[0]) / 100,
                 'weight': weight[0],
                 'revision': revision,
                 'def_wr': def_wr_rate,
                 'att_wr': att_wr_rate,
+                'body_type': body_type,
                 'traits': ' '.join(traits),
+                'price_range': price_range,
                 'pace': pace[0],
                 'acceleration': acceleration[0],
                 'sprint_speed': sprint_speed[0],
@@ -258,7 +247,9 @@ def files_writer(players):
                         'Revision',
                         'Def WR',
                         'Att WR',
+                        'Body Type',
                         'Traits',
+                        'Price Range',
                         'PACE',
                         'Acceleration',
                         'Sprint Speed',
@@ -318,7 +309,9 @@ def files_writer(players):
                             player['revision'],
                             player['def_wr'],
                             player['att_wr'],
+                            player['body_type'],
                             player['traits'],
+                            player['price_range'],
                             player['pace'],
                             player['acceleration'],
                             player['sprint_speed'],
