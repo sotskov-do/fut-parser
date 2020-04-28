@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-">
-      <change beforePath="$PROJECT_DIR$/.idea/FUT Parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FUT Parser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FUT Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/FUT Parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsed_player_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parsed_player_database.csv" afterDir="false" />
-    </list>
+    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Coursera-My-Courses/Programmirovanie-na-Python-Specialization/OOP_i_patterni_proektirovaniya/Week_2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.FUT Parser">
@@ -199,10 +193,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="504" y="131" width="714" height="798" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579712439641" />
-    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl" timestamp="1579719509541">
+    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl" timestamp="1587637983469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1579719509541" />
+    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587637983469" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1587500386969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
