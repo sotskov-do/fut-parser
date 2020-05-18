@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-" />
+    <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FUT Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/FUT Parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsed_player_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parsed_player_database.csv" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Coursera-My-Courses/Programmirovanie-na-Python-Specialization/OOP_i_patterni_proektirovaniya/Week_2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.FUT Parser">
@@ -185,34 +189,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="455" y="192" width="800" height="672" key="#Updates" timestamp="1579712595501">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="455" y="192" width="800" height="672" key="#Updates/0.0.1920.1040@0.0.1920.1040" timestamp="1579712595501" />
-    <state x="504" y="131" width="714" height="798" key="CommitChangelistDialog2" timestamp="1579712439641">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="504" y="131" width="714" height="798" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1579712439641" />
     <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl" timestamp="1587637983469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587637983469" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1587500386969">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1588447221706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587500386969" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1587500386969">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588447221706" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1588447221706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587500386969" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1587500386968">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588447221706" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1588447221706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587500386968" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1587500386969">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588447221706" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1588447221706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587500386969" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588447221706" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1587500386966">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -233,24 +229,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="464" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587495363036" />
-    <state x="643" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1579719499950">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="643" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579719499950" />
-    <state x="654" y="453" width="424" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579712404344">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="654" y="453" width="424" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1579712404344" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/FUT Parser.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

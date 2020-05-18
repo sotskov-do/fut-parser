@@ -2,12 +2,12 @@ import requests
 import csv
 from bs4 import BeautifulSoup as bs
 import time
-import socket
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36"}
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                         "Chrome/67.0.3396.87 Safari/537.36"}
 
-base_url = 'https://www.futbin.com/20/player/1'
+# Enter interesting card outside normal gold
+base_url = 'https://www.futbin.com/20/player/141'
 
 
 def fb_parse(base_url, headers):
@@ -22,7 +22,7 @@ def fb_parse(base_url, headers):
     soup_pagination = bs(pagination_request.content, 'lxml')
     pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
     if request.status_code == 200:
-        # TODO, insert pagination
+        # TODO, insert range(pagination)
         for i in range(1):
             request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
             soup = bs(request.content, 'lxml')
@@ -115,49 +115,121 @@ def fb_parse(base_url, headers):
             skill_rate = round(int(skills[0]) * 0.2, 1)
             weak_foot_rate = round(int(weak_foot[0]) * 0.2, 1)
             best_cb = round(
-                ((int(acceleration[0]) * 0.1 + int(sprint_speed[0]) * 0.1 + int(agility[0]) * 0.07 +
-                  int(balance[0]) * 0.07 + int(interceptions[0]) * 0.07 + int(heading_accuracy[0]) * 0.07 +
-                  int(marking[0]) * 0.07 + int(standing_tackle[0]) * 0.07 + int(sliding_tackle[0]) * 0.07 +
-                  int(jumping[0]) * 0.07 + int(strength[0]) * 0.07 +
-                  int(aggression[0]) * 0.07) / 12) + (int(height[0])) / 100, 5)
+                ((int(acceleration[0]) * 0.1 +
+                  int(sprint_speed[0]) * 0.1 +
+                  int(agility[0]) * 0.07 +
+                  int(balance[0]) * 0.07 +
+                  int(interceptions[0]) * 0.07 +
+                  int(heading_accuracy[0]) * 0.07 +
+                  int(marking[0]) * 0.07 +
+                  int(standing_tackle[0]) * 0.07 +
+                  int(sliding_tackle[0]) * 0.07 +
+                  int(jumping[0]) * 0.07 +
+                  int(strength[0]) * 0.07 +
+                  int(aggression[0]) * 0.07) / 12) +
+                (int(height[0])) / 100, 5)
             best_fb = round(
-                ((int(acceleration[0]) * 0.08 + int(sprint_speed[0]) * 0.08 + int(crossing[0]) * 0.07 +
-                  int(long_passing[0]) * 0.07 + int(curve[0]) * 0.07 + int(agility[0]) * 0.07 +
-                  int(balance[0]) * 0.07 + int(interceptions[0]) * 0.07 + int(marking[0]) * 0.07 +
-                  int(standing_tackle[0]) * 0.07 + int(jumping[0]) * 0.07 +
-                  int(stamina[0]) * 0.07 + int(strength[0]) * 0.07) / 13) + (int(height[0])) / 100, 5)
+                ((int(acceleration[0]) * 0.08 +
+                  int(sprint_speed[0]) * 0.08 +
+                  int(crossing[0]) * 0.07 +
+                  int(long_passing[0]) * 0.07 +
+                  int(curve[0]) * 0.07 +
+                  int(agility[0]) * 0.07 +
+                  int(balance[0]) * 0.07 +
+                  int(interceptions[0]) * 0.07 +
+                  int(marking[0]) * 0.07 +
+                  int(standing_tackle[0]) * 0.07 +
+                  int(jumping[0]) * 0.07 +
+                  int(stamina[0]) * 0.07 +
+                  int(strength[0]) * 0.07) / 13) +
+                (int(height[0])) / 100, 5)
             best_cdm = round(
-                ((int(acceleration[0]) * 0.1 + int(sprint_speed[0]) * 0.1 + int(shot_power[0]) * 0.1 +
-                  int(long_shots[0]) * 0.1 + int(short_passing[0]) * 0.1 + int(interceptions[0]) * 0.1 +
-                  int(marking[0]) * 0.1 + int(stamina[0]) * 0.1 + int(strength[0]) * 0.1 +
-                  int(aggression[0]) * 0.1) / 10 + att_wr_rate + def_wr_rate + (int(height[0])) / 100), 5)
+                ((int(acceleration[0]) * 0.1 +
+                  int(sprint_speed[0]) * 0.1 +
+                  int(shot_power[0]) * 0.1 +
+                  int(long_shots[0]) * 0.1 +
+                  int(short_passing[0]) * 0.1 +
+                  int(interceptions[0]) * 0.1 +
+                  int(marking[0]) * 0.1 +
+                  int(stamina[0]) * 0.1 +
+                  int(strength[0]) * 0.1 +
+                  int(aggression[0]) * 0.1) / 10 +
+                 att_wr_rate +
+                 def_wr_rate +
+                 (int(height[0])) / 100), 5)
             best_cm = round(
-                ((int(acceleration[0]) * 0.08 + int(sprint_speed[0]) * 0.08 + int(shot_power[0]) * 0.07 +
-                  int(long_shots[0]) * 0.07 + int(vision[0]) * 0.07 + int(short_passing[0]) * 0.07 +
-                  int(long_passing[0]) * 0.07 + int(curve[0]) * 0.07 + int(agility[0]) * 0.07 +
-                  int(ball_control[0]) * 0.07 + int(dribbling[0]) * 0.07 + int(interceptions[0]) * 0.07 +
-                  int(stamina[0]) * 0.07 + int(strength[0]) * 0.07) / 14 + att_wr_rate +
-                 def_wr_rate + weak_foot_rate), 5)
+                ((int(acceleration[0]) * 0.08 +
+                  int(sprint_speed[0]) * 0.08 +
+                  int(shot_power[0]) * 0.07 +
+                  int(long_shots[0]) * 0.07 +
+                  int(vision[0]) * 0.07 +
+                  int(short_passing[0]) * 0.07 +
+                  int(long_passing[0]) * 0.07 +
+                  int(curve[0]) * 0.07 +
+                  int(agility[0]) * 0.07 +
+                  int(ball_control[0]) * 0.07 +
+                  int(dribbling[0]) * 0.07 +
+                  int(interceptions[0]) * 0.07 +
+                  int(stamina[0]) * 0.07 +
+                  int(strength[0]) * 0.07) / 14 +
+                 att_wr_rate +
+                 def_wr_rate +
+                 weak_foot_rate), 5)
             best_cam = round(
-                ((int(acceleration[0]) * 0.08 + int(sprint_speed[0]) * 0.08 + int(finishing[0]) * 0.06 +
-                  int(long_shots[0]) * 0.06 + int(vision[0]) * 0.06 + int(crossing[0]) * 0.06 +
-                  int(short_passing[0]) * 0.06 + int(long_passing[0]) * 0.06 + int(curve[0]) * 0.06 +
-                  int(agility[0]) * 0.06 + int(balance[0]) * 0.06 + int(reactions[0]) * 0.06 +
-                  int(ball_control[0]) * 0.06 + int(dribbling[0]) * 0.06 + int(composure[0]) * 0.06 +
-                  int(stamina[0]) * 0.06) / 16 + skill_rate + weak_foot_rate), 5)
+                ((int(acceleration[0]) * 0.08 +
+                  int(sprint_speed[0]) * 0.08 +
+                  int(finishing[0]) * 0.06 +
+                  int(long_shots[0]) * 0.06 +
+                  int(vision[0]) * 0.06 +
+                  int(crossing[0]) * 0.06 +
+                  int(short_passing[0]) * 0.06 +
+                  int(long_passing[0]) * 0.06 +
+                  int(curve[0]) * 0.06 +
+                  int(agility[0]) * 0.06 +
+                  int(balance[0]) * 0.06 +
+                  int(reactions[0]) * 0.06 +
+                  int(ball_control[0]) * 0.06 +
+                  int(dribbling[0]) * 0.06 +
+                  int(composure[0]) * 0.06 +
+                  int(stamina[0]) * 0.06) / 16 +
+                 skill_rate +
+                 weak_foot_rate), 5)
             best_w = round(
-                ((int(acceleration[0]) * 0.1 + int(sprint_speed[0]) * 0.1 + int(positioning[0]) * 0.08 +
-                  int(finishing[0]) * 0.08 + int(crossing[0]) * 0.08 + int(long_passing[0]) * 0.08 +
-                  int(curve[0]) * 0.08 + int(agility[0]) * 0.08 + int(ball_control[0]) * 0.08 +
-                  int(dribbling[0]) * 0.08 + int(stamina[0]) * 0.08 + int(strength[0]) * 0.08)
-                 / 12 + skill_rate + weak_foot_rate + att_wr_rate + (int(height[0])) / 100), 5)
+                ((int(acceleration[0]) * 0.1 +
+                  int(sprint_speed[0]) * 0.1 +
+                  int(positioning[0]) * 0.08 +
+                  int(finishing[0]) * 0.08 +
+                  int(crossing[0]) * 0.08 +
+                  int(long_passing[0]) * 0.08 +
+                  int(curve[0]) * 0.08 +
+                  int(agility[0]) * 0.08 +
+                  int(ball_control[0]) * 0.08 +
+                  int(dribbling[0]) * 0.08 +
+                  int(stamina[0]) * 0.08 +
+                  int(strength[0]) * 0.08) / 12 +
+                 skill_rate +
+                 weak_foot_rate +
+                 att_wr_rate +
+                 (int(height[0])) / 100), 5)
             best_st = round(
-                ((int(acceleration[0]) * 0.1 + int(sprint_speed[0]) * 0.1 + int(positioning[0]) * 0.06 +
-                  int(finishing[0]) * 0.06 + int(vision[0]) * 0.06 + int(short_passing[0]) * 0.06 +
-                  int(agility[0]) * 0.06 + int(reactions[0]) * 0.06 + int(ball_control[0]) * 0.06 +
-                  int(dribbling[0]) * 0.06 + int(composure[0]) * 0.06 + int(heading_accuracy[0]) * 0.06 +
-                  int(jumping[0]) * 0.06 + int(stamina[0]) * 0.06 + int(strength[0]) * 0.06) / 15 +
-                 skill_rate + weak_foot_rate + att_wr_rate), 5)
+                ((int(acceleration[0]) * 0.1 +
+                  int(sprint_speed[0]) * 0.1 +
+                  int(positioning[0]) * 0.06 +
+                  int(finishing[0]) * 0.06 +
+                  int(vision[0]) * 0.06 +
+                  int(short_passing[0]) * 0.06 +
+                  int(agility[0]) * 0.06 +
+                  int(reactions[0]) * 0.06 +
+                  int(ball_control[0]) * 0.06 +
+                  int(dribbling[0]) * 0.06 +
+                  int(composure[0]) * 0.06 +
+                  int(heading_accuracy[0]) * 0.06 +
+                  int(jumping[0]) * 0.06 +
+                  int(stamina[0]) * 0.06 +
+                  int(strength[0]) * 0.06) / 15 +
+                 skill_rate +
+                 weak_foot_rate +
+                 att_wr_rate), 5)
             players.append({
                 'rating': rating[0],
                 'player_name': name,
