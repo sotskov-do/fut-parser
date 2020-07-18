@@ -2,6 +2,8 @@ import requests
 import csv
 from bs4 import BeautifulSoup as bs
 import time
+from tqdm import trange
+from tqdm import tqdm
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                          "Chrome/67.0.3396.87 Safari/537.36"}
@@ -21,25 +23,26 @@ def fb_parse(base_url, headers):
     pagination_request = session.get('https://www.futbin.com/players?page=1&version=gold', headers=headers)
     soup_pagination = bs(pagination_request.content, 'lxml')
     pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
+    pagination_test = 2
     if request.status_code == 200:
         # TODO, insert range(pagination)
-        for i in range(1):
+        for i in trange(1, pagination_test + 1):
             request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
             soup = bs(request.content, 'lxml')
             try:
                 time.sleep(5)
                 s_url = soup.find_all('a', attrs={'class': 'player_name_players_table'})
-                print(len(s_url))
+                # print(len(s_url))
                 for i in range(len(s_url)):
                     url = 'https://www.futbin.com' + s_url[i]['href']
                     if url not in urls:
                         urls.append(url)
             except:
                 pass
-    for url in urls:
-        x += 1
-        y = round(((x / (len(urls) + 1)) * 100), 2)
-        print(y, '%')
+    for url in tqdm(urls):
+        # x += 1
+        # y = round(((x / (len(urls) + 1)) * 100), 2)
+        # print(y, '%')
         try:
             time.sleep(5)
             request = session.get(url, headers=headers)
@@ -296,9 +299,9 @@ def fb_parse(base_url, headers):
             pass
     else:
         print('ERROR or Done. Status code = ' + str(request.status_code))
-    end = time.time()
-    result = round(((end - start) / 60), 2)
-    print(result)
+    # end = time.time()
+    # result = round(((end - start) / 60), 2)
+    # print(result)
     return players
 
 
@@ -432,4 +435,4 @@ def files_writer(players):
 
 players = fb_parse(base_url, headers)
 files_writer(players)
-print("Let's go !")
+print("Finished!")
