@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d5e5fc43-ccd5-4a57-99aa-9926f1abccea" name="Default Changelist" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB-1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB-2.xlsb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB.xlsb" beforeDir="false" afterPath="$PROJECT_DIR$/DB.xlsb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FUT Parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/FUT Parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsed_player_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/parsed_player_database.csv" afterDir="false" />
     </list>
@@ -32,8 +35,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fifa-20-Icon-Draw" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.FUT Parser">
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -70,27 +73,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FUT Parser.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="FUT" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="FUT Parser" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FUT.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,13 +123,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="FUT Parser" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.FUT Parser" />
+        <item itemvalue="Python.scratch" />
         <item itemvalue="Python.Tor" />
         <item itemvalue="Python.IP Changer" />
         <item itemvalue="Python.1" />
-        <item itemvalue="Python.FUT" />
       </list>
     </recent_temporary>
   </component>
@@ -189,45 +192,49 @@
     <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl" timestamp="1587637983469">
+    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl" timestamp="1595181510595">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587637983469" />
-    <state width="1881" height="344" key="GridCell.Tab.0.bottom" timestamp="1595067436849">
+    <state x="649" y="291" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595181510595" />
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom" timestamp="1601223167599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.0.center" timestamp="1595067436849">
+    <state width="1899" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601223167599" />
+    <state width="1899" height="281" key="GridCell.Tab.0.center" timestamp="1601223167599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.0.left" timestamp="1595067436849">
+    <state width="1899" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601223167599" />
+    <state width="1899" height="281" key="GridCell.Tab.0.left" timestamp="1601223167599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.0.right" timestamp="1595067436849">
+    <state width="1899" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601223167599" />
+    <state width="1899" height="281" key="GridCell.Tab.0.right" timestamp="1601223167599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.1.bottom" timestamp="1595067436849">
+    <state width="1899" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601223167599" />
+    <state width="1899" height="347" key="GridCell.Tab.1.bottom" timestamp="1601066469438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.1.center" timestamp="1595067436849">
+    <state width="1899" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601066469438" />
+    <state width="1899" height="347" key="GridCell.Tab.1.center" timestamp="1601066469438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.1.left" timestamp="1595067436849">
+    <state width="1899" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601066469438" />
+    <state width="1899" height="347" key="GridCell.Tab.1.left" timestamp="1601066469438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state width="1881" height="344" key="GridCell.Tab.1.right" timestamp="1595067436849">
+    <state width="1899" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601066469438" />
+    <state width="1899" height="347" key="GridCell.Tab.1.right" timestamp="1601066469438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1881" height="344" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595067436849" />
-    <state x="464" y="155" key="SettingsEditor" timestamp="1587495363036">
+    <state width="1899" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601066469438" />
+    <state x="464" y="155" key="SettingsEditor" timestamp="1595146367832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="464" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587495363036" />
+    <state x="464" y="155" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595146367832" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1601221847018">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601221847018" />
   </component>
 </project>

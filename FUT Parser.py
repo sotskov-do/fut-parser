@@ -9,7 +9,7 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
                          "Chrome/67.0.3396.87 Safari/537.36"}
 
 # Enter interesting card outside normal gold
-base_url = 'https://www.futbin.com/20/player/141'
+base_url = 'https://www.futbin.com/21/player/80'
 
 
 def fb_parse(base_url, headers):
@@ -23,7 +23,7 @@ def fb_parse(base_url, headers):
     pagination_request = session.get('https://www.futbin.com/players?page=1&version=gold', headers=headers)
     soup_pagination = bs(pagination_request.content, 'lxml')
     pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
-    pagination_test = 2
+    pagination_test = 1
     if request.status_code == 200:
         # TODO, insert range(pagination)
         for i in trange(1, pagination_test + 1):
@@ -32,7 +32,6 @@ def fb_parse(base_url, headers):
             try:
                 time.sleep(5)
                 s_url = soup.find_all('a', attrs={'class': 'player_name_players_table'})
-                # print(len(s_url))
                 for i in range(len(s_url)):
                     url = 'https://www.futbin.com' + s_url[i]['href']
                     if url not in urls:
@@ -40,9 +39,6 @@ def fb_parse(base_url, headers):
             except:
                 pass
     for url in tqdm(urls):
-        # x += 1
-        # y = round(((x / (len(urls) + 1)) * 100), 2)
-        # print(y, '%')
         try:
             time.sleep(5)
             request = session.get(url, headers=headers)
@@ -50,19 +46,25 @@ def fb_parse(base_url, headers):
             rating = soup.find('div', attrs={'class': 'pcdisplay-rat'}).text.split()
             name = soup.find('span', attrs={'class': 'header_name'}).text
             position = soup.find('div', attrs={'class': 'pcdisplay-pos'}).text
-            club = soup.find_all('td', attrs={'class': 'table-row-text'})[1].text.split()
-            nation = soup.find_all('td', attrs={'class': 'table-row-text'})[2].text.split()
-            league = soup.find_all('td', attrs={'class': 'table-row-text'})[3].text.split()
-            skills = soup.find_all('td', attrs={'class': 'table-row-text'})[4].text.split()
-            weak_foot = soup.find_all('td', attrs={'class': 'table-row-text'})[5].text.split()
-            a = len(soup.find_all('td', attrs={'class': 'table-row-text'}))
-            foot = soup.find_all('td', attrs={'class': 'table-row-text'})[7].text.split()
-            height = soup.find_all('td', attrs={'class': 'table-row-text'})[8].text.split('c')
-            weight = soup.find_all('td', attrs={'class': 'table-row-text'})[9].text.split()
-            revision = soup.find_all('td', attrs={'class': 'table-row-text'})[10].text
-            def_wr = soup.find_all('td', attrs={'class': 'table-row-text'})[11].text
-            att_wr = soup.find_all('td', attrs={'class': 'table-row-text'})[12].text
-            body_type = soup.find_all('td', attrs={'class': 'table-row-text'})[16].text
+            source_keys_for_dictionary = soup.find_all('th')
+            source_values_for_dictionary = soup.find_all('td', 'table-row-text')
+            keys_for_dictionary = [_.text for _ in source_keys_for_dictionary]
+            values_for_dictionary = [_.text for _ in source_values_for_dictionary]
+            dictionary = dict(zip(keys_for_dictionary, values_for_dictionary))
+            if 'B.Type' not in dictionary:
+                dictionary['B.Type'] = 'Unknown'
+            club = dictionary['Club'].split()
+            nation = dictionary['Nation'].split()
+            league = dictionary['League'].split()
+            skills = dictionary['Skills'].split()
+            weak_foot = dictionary['Weak Foot'].split()
+            foot = dictionary['Foot '].split()
+            height = dictionary['Height '].split('c')
+            weight = dictionary['Weight '].split()
+            revision = dictionary['Revision']
+            def_wr = dictionary['Def. WR']
+            att_wr = dictionary['Att. WR']
+            body_type = dictionary['B.Type']
             traits = soup.find('div', attrs={'id': 'traits_content'}).text.split()
             # TODO, add price range
             price_range = soup.find('div', attrs={'id': 'pr_pc'})
@@ -296,12 +298,10 @@ def fb_parse(base_url, headers):
                 'url': url
             })
         except:
+            print('error in', url)
             pass
     else:
         print('ERROR or Done. Status code = ' + str(request.status_code))
-    # end = time.time()
-    # result = round(((end - start) / 60), 2)
-    # print(result)
     return players
 
 
