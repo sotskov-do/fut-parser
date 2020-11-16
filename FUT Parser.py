@@ -9,25 +9,23 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
                          "Chrome/67.0.3396.87 Safari/537.36"}
 
 # Enter interesting card outside normal gold
-base_url = 'https://www.futbin.com/21/player/80'
+base_url = 'https://www.futbin.com/21/player/996/fernando-torres'
 
 
 def fb_parse(base_url, headers):
-    x = 0
-    start = time.time()
     players = []
     urls = []
     urls.append(base_url)
     session = requests.Session()
     request = session.get(base_url, headers=headers)
-    pagination_request = session.get('https://www.futbin.com/players?page=1&version=gold', headers=headers)
+    pagination_request = session.get('https://www.futbin.com/players?page=1&version=icons', headers=headers)
     soup_pagination = bs(pagination_request.content, 'lxml')
     pagination = int(soup_pagination.find_all('a', attrs={'class': 'page-link'})[-2].text)
     pagination_test = 1
     if request.status_code == 200:
         # TODO, insert range(pagination)
-        for i in trange(1, pagination_test + 1):
-            request = session.get(f'https://www.futbin.com/players?page={i}&version=gold', headers=headers)
+        for i in trange(1, pagination + 1):
+            request = session.get(f'https://www.futbin.com/players?page={i}&version=icons', headers=headers)
             soup = bs(request.content, 'lxml')
             try:
                 time.sleep(5)
