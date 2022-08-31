@@ -1,0 +1,11 @@
+requests
+bs4
+tqdm
+numpy
+pandas
+sklearn
+selenium
+lxml
+icecream
+webdriver-manager
+openpyxl

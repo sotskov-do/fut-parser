@@ -4,3 +4,5 @@ venv
 *.xlsb
 *.xlsx
 *csv
+dbs
+geckodriver.log
