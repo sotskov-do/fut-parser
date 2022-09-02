@@ -1,3 +1,4 @@
+from copy import deepcopy
 from random import choice
 import time
 from typing import List
@@ -5,6 +6,8 @@ from typing import List
 from icecream import ic
 import pandas as pd
 import openpyxl
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import normalize
 from tqdm import tqdm
 
 from selenium import webdriver
@@ -208,26 +211,32 @@ def get_players_stats(total_urls):
     return players
 
 def add_analytic_variables(df):
+    df["traits"] = df["traits"].fillna("")
+    df["traits"] = df["traits"].str.split(",").apply(lambda x: [y.strip() for y in x if y != ""])
+
     df["best_cb"] = (df["sprint_speed"]*2 + df["interceptions"] + df["marking"]*3 + 
                      df["standing_tackle"]*2 + df["jumping"] + df["strength"] + 
                      df["agility"] + df["balance"] + df["reactions"] + 
                      df["height"]*75 + df["heading_accuracy"] + df["aggression"]*2)
     max_best_cb = df["best_cb"].max()
-    df["%_best_cb"] = df["best_cb"].apply(lambda x: x/max_best_cb)
+    min_best_cb = df["best_cb"].min()
+    df["%_best_cb"] = df["best_cb"].apply(lambda x: (x - min_best_cb) / (max_best_cb - min_best_cb))
 
     df["best_fb"] = (df["sprint_speed"]*5 + df["positioning"] + df["finishing"] + 
                      df["crossing"] + df["long_passing"] + df["agility"] + 
                      df["balance"] + df["standing_tackle"]*2 + df["marking"]*2 + 
                      df["interceptions"]*2 + df["stamina"] + df["weak_foot"]*50)
     max_best_fb = df["best_fb"].max()
-    df["%_best_fb"] = df["best_fb"].apply(lambda x: x/max_best_fb)
+    min_best_fb = df["best_fb"].min()
+    df["%_best_fb"] = df["best_fb"].apply(lambda x: (x - min_best_fb) / (max_best_fb - min_best_fb))
 
     df["best_cdm"] = (df["sprint_speed"]*1.5 + df["shot_power"] + df["long_shots"] + 
                       df["short_passing"] + df["interceptions"]*2 + df["marking"]*3 + 
                       df["standing_tackle"]*2 + df["strength"] + df["aggression"] + 
                       df["height"]*75)
     max_best_cdm = df["best_cdm"].max()
-    df["%_best_cdm"] = df["best_cdm"].apply(lambda x: x/max_best_cdm)
+    min_best_cdm = df["best_cdm"].min()
+    df["%_best_cdm"] = df["best_cdm"].apply(lambda x: (x - min_best_cdm) / (max_best_cdm - min_best_cdm))
 
     df["best_cm"] = (df["def_wr"]*50 + df["att_wr"]*50 + df["sprint_speed"]*2.5 + 
                      df["shot_power"]*2 + df["long_shots"]*2 + df["vision"]*3 + 
@@ -236,7 +245,8 @@ def add_analytic_variables(df):
                      df["ball_control"] + df["stamina"] + df["weak_foot"]*50 + 
                      df["interceptions"])
     max_best_cm = df["best_cm"].max()
-    df["%_best_cm"] = df["best_cm"].apply(lambda x: x/max_best_cm)
+    min_best_cm = df["best_cm"].min()
+    df["%_best_cm"] = df["best_cm"].apply(lambda x: (x - min_best_cm) / (max_best_cm - min_best_cm))
 
     df["best_cam"] = (df["skills"]*50 + df["weak_foot"]*50 + df["sprint_speed"]*4 + 
                       df["positioning"] + df["finishing"] + df["vision"]*2 + 
@@ -245,7 +255,8 @@ def add_analytic_variables(df):
                       df["reactions"]*1.5 + df["ball_control"]*1.5 + df["dribbling"]*1.5 + 
                       df["composure"])
     max_best_cam = df["best_cam"].max()
-    df["%_best_cam"] = df["best_cam"].apply(lambda x: x/max_best_cam)
+    min_best_cam = df["best_cam"].min()
+    df["%_best_cam"] = df["best_cam"].apply(lambda x: (x - min_best_cam) / (max_best_cam - min_best_cam))
 
     df["best_w"] = (df["sprint_speed"]*5 + df["positioning"]*2 + df["finishing"]*2 + 
                     df["crossing"] + df["long_passing"]*2 + df["curve"]*2 + 
@@ -253,18 +264,39 @@ def add_analytic_variables(df):
                     df["composure"] + df["agility"]*1.5 + df["balance"]*1.5 + 
                     df["reactions"]*1.5 + df["ball_control"]*1.5 + df["dribbling"]*1.5)
     max_best_w = df["best_w"].max()
-    df["%_best_w"] = df["best_w"].apply(lambda x: x/max_best_w)
+    min_best_w = df["best_w"].min()
+    df["%_best_w"] = df["best_w"].apply(lambda x: (x - min_best_w) / (max_best_w - min_best_w))
 
 
     df["best_st"] = (df["sprint_speed"]*2 + df["positioning"]*2 + df["finishing"]*2 + 
                     df["composure"] + df["agility"] + df["balance"] + 
                     df["skills"]*50 + df["weak_foot"]*50)
+    df["best_st"] = df.apply(lambda x: x.best_st + 25 if "Finesse Shot" in x.traits else x.best_st, axis=1)
+    df["best_st"] = df.apply(lambda x: x.best_st + 25 if "Outside Foot Shot" in x.traits else x.best_st, axis=1)
     max_best_st = df["best_st"].max()
-    df["%_best_st"] = df["best_st"].apply(lambda x: x/max_best_st)
+    min_best_st = df["best_st"].min()
+    df["%_best_st"] = df["best_st"].apply(lambda x: (x - min_best_st) / (max_best_st - min_best_st))
 
     df["best_heading"] = (df["height"]*100 + df["heading_accuracy"] + df["jumping"])
+    df["best_heading"] = df.apply(lambda x: x.best_heading + 10 if "Power Header" in x.traits else x.best_heading, axis=1)
     max_best_heading = df["best_heading"].max()
-    df["%_best_heading"] = df["best_heading"].apply(lambda x: x/max_best_heading)
+    min_best_heading = df["best_heading"].min()
+    df["%_best_heading"] = df["best_heading"].apply(lambda x: (x - min_best_heading) / (max_best_heading - min_best_heading))
+
+
+def create_similarity_matrix(df):
+    result_raw = df.loc[:,'acceleration':'aggression']
+    result_raw = result_raw.drop(['shooting', 'passing', 'dribbling_m', 'defending', 'physicality'], axis=1)
+    result_raw['height'] = df['height']
+    result_raw['player_name'] = df['player_name'] + " " + df["rating"].apply(str)
+    result_raw = result_raw.set_index("player_name")
+
+    for current_column in result_raw.columns:
+        result_raw[current_column] = (result_raw[current_column] - result_raw[current_column].mean()) / result_raw[current_column].std()
+
+    result = cosine_similarity(result_raw)
+    result = pd.DataFrame(result, index=result_raw.index, columns=result_raw.index)
+    return result
 
 
 if __name__ == "__main__":
@@ -281,12 +313,18 @@ if __name__ == "__main__":
     df.to_csv("dbs/test_backup.csv", index=False)
     # df = pd.read_csv("dbs/test_backup.csv")
     df = df[df["position"] != "GK"]
-    df_without_icons = df[df["club"] != "Icons"]
+    df_without_icons = deepcopy(df[df["club"] != "Icons"])
 
     add_analytic_variables(df)
     add_analytic_variables(df_without_icons)
 
-    df.to_excel("dbs/test_db.xlsx", index=False)
-    df.to_csv("dbs/test_db.csv", index=False)
-    df_without_icons.to_excel("dbs/test_db_without_icons.xlsx", index=False)
-    df_without_icons.to_csv("dbs/test_db_without_icons.csv", index=False)
+    df_similarity_matrix = create_similarity_matrix(df)
+    df_without_icons_similarity_matrix = create_similarity_matrix(df_without_icons)
+
+    with pd.ExcelWriter("dbs/test_db.xlsx") as writer:
+        df.to_excel(writer, sheet_name="db", index=False)
+        df_similarity_matrix.to_excel(writer, sheet_name="similarity")
+
+    with pd.ExcelWriter("dbs/test_db_without_icons.xlsx") as writer:
+        df_without_icons.to_excel(writer, sheet_name="db", index=False)
+        df_without_icons_similarity_matrix.to_excel(writer, sheet_name="similarity")

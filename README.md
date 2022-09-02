@@ -1,1 +1,1 @@
-Players parser for futbin.com
+Players parser for futbin.com, futwiz.com
